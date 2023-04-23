@@ -1,0 +1,273 @@
+body{
+    width: 1250px;
+    background: #F3F5FC;    
+}
+
+.imagen-logo-alura{
+    position: absolute;
+    left: 34px;
+    top: 40px;
+}
+
+.seccion-input{
+    position: relative;
+    left: 240px;
+    top: 168px;
+}
+
+.input-textarea{
+    background: #F3F5FC;
+    width: 680px;
+    height: 400px;
+    border: none;
+    resize: none;
+    color: #0A3871;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-size: 32px;
+    
+}
+
+.input-textarea::placeholder{
+    color: #0A3871;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-size: 32px;
+}
+
+.input-textarea:focus{
+    outline: none;
+}
+
+.text-advertencia{
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-size: 12px;
+}
+
+
+.img-advertencia{
+    position: relative;
+    top: 4px;
+}
+
+.conte-butttos{
+    margin: 20px auto;
+}
+
+
+.input-button{
+    height: 67px;
+    width: 328px;
+    background: #0A3871;
+    border-radius: 24px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-size: 16px;
+    color: #FFFFFF;
+
+}
+
+.input-button2{
+    margin: 0 30px;
+    height: 67px;
+    width: 328px;
+    background: #D8DFE8;
+    border-radius: 24px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-size: 16px;
+    color: #0A3871;
+    border-color: #0A3871;
+
+}
+
+.area-muestra-texto{
+    background: #FFFFFF;
+    position: absolute;
+    width: 370px;
+    height: 650px;
+    left: 1000px;
+    top: 40px;
+    border-radius: 32px;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+}
+
+.imgen-seccion-resultado-texto{
+    position: absolute;
+    width: 290px;
+    height: 258px;
+    left: 40px;
+    top: 150px;
+}
+
+.content-parrafo-compo-texto-resul{
+    position: absolute;
+    text-align: center;
+    top: 450px;
+}
+
+.text-parrafo-1{
+    color: #343A40;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 10px auto;
+    
+}
+
+.text-parrafo-2{
+    color: #495057;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-size: 16px;
+    margin: 10px auto;
+}
+
+.conten-button-copiar-texto{
+    position: absolute;
+    left: -5px;
+    top: 560px;
+}
+
+.texo-resultado{
+    color: #495057;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    margin: 20px 30px;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    body{
+        width: 768px;
+        background: #F3F5FC;    
+    }
+
+    .imagen-logo-alura{
+        position: absolute;
+        left: 10px;
+        top: 76px;
+    }
+
+    .seccion-input{
+        position: relative;
+        left: 53px;
+        top: 240px;
+        display: inline-table;
+    }
+
+    form{
+        display: inline-table;
+    }
+
+    .area-muestra-texto{
+        left: 50px;
+        top: 825px;
+        width: 688px;
+        height: max-content;
+    }
+
+    .imgen-seccion-resultado-texto{
+        display: none;
+    }
+
+    .content-parrafo-compo-texto-resul{
+        position: absolute;
+        text-align: center;
+        display: contents;
+        left: 150px;
+        top: 25px;
+    }
+
+    .text-parrafo-1 {
+        color: #343A40;
+        font-family: 'Inter', sans-serif;
+        font-weight: bold;
+        font-size: 24px;
+        margin: 40px auto 20px;
+    }
+
+    .text-parrafo-2 {
+        color: #495057;
+        font-family: 'Inter', sans-serif;
+        font-style: normal;
+        font-size: 16px;
+        margin: 10px auto 50px;
+    }
+
+    #existe-text .area-muestra-texto{
+        left: 50px;
+        top: 825px;
+        width: 688px;
+    }
+
+    .section-area-texto .area-muestra-texto .conten-button-copiar-texto{
+        position: absolute;
+        left: -5px;
+        margin: 20px;
+        display: contents;
+    }
+
+    .section-area-texto .area-muestra-texto .conten-button-copiar-texto .input-button2{
+        margin: auto auto 40px 30px;
+        height: 67px;
+        width: 630px;
+        background: #D8DFE8;
+        border-radius: 24px;
+        font-family: 'Inter', sans-serif;
+        font-style: normal;
+        font-size: 16px;
+        color: #0A3871;
+        border-color: #0A3871;
+    }
+}
+
+@media screen and (max-width: 355px) {
+
+    body{
+        width: 355px;
+    }
+    
+    .imagen-logo-alura{
+        position: absolute;
+        left: -32px;
+        top: 24px;
+    }
+
+    .seccion-input {
+        left: 10px;
+        top: 150px;
+    }
+
+    .input-textarea {
+        width: 328px;
+    }
+
+    .conte-butttos {
+        display: grid;
+    }
+
+    .input-button2 {
+        margin: 20px 0px;
+    }
+
+    .area-muestra-texto {
+        top: 900px;
+        left: 14px;
+        width: 328px;
+    }
+
+    .texo-resultado {
+        font-size: 19px;
+    }
+
+    .section-area-texto .area-muestra-texto .conten-button-copiar-texto .input-button2 {
+        margin: auto auto 40px 35px;
+        width: 260px;
+    }
+    
+}

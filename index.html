@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <section class="imagen-logo-alura">
+
+            <img src="imagenes/Logo-2.png" alt="Logo de alura">
+    
+        </section>
+    
+        <section class="seccion-input">
+            <form>
+                
+                <textarea class="input-textarea" placeholder="Ingrese el texto aqui" cols="30" rows="10" required id="Ingreso-de-texto"></textarea>
+
+                <p class="text-advertencia"><img class="img-advertencia" src="imagenes/bi_exclamation-circle-fill.png" alt="Icono de advertencia"> Solo letras minúsculas y sin acentos</p>
+
+            </form>
+
+            <div class="conte-butttos">
+                <input class="input-button" type="submit" value="Encriptar" id="button-Encriptar" onclick="encriptar()">
+                <input class="input-button2" type="submit" value="Desencriptar" onclick="desencriptar()" >
+            </div>
+
+    
+        </section>
+
+        <section class="section-area-texto">
+            <div id="no-existe-text" class="area-muestra-texto">
+        
+                <img class="imgen-seccion-resultado-texto" src="imagenes/Muñeco.png" alt="Ilustacion de una persona observando">
+                
+                <div class="content-parrafo-compo-texto-resul">
+                    <p class="text-parrafo-1">
+                        Ningún mensaje fue encontrado
+                    </p>
+                    <p class="text-parrafo-2">
+                        Ingresa el texto que desees encriptar o desencriptar.
+                    </p>
+                </div>
+            </div>
+        
+            <div id="existe-text" class="area-muestra-texto" style="display: none;">
+        
+                <div>
+                    <p id="contenido-de-texto-convertido" class="texo-resultado"></p>
+                </div>
+                <div class="conten-button-copiar-texto">
+        
+                    <input style="display: none;" class="input-button2" type="submit" value="Copiar" id="copiarTexto" onclick="copyText()">
+        
+                </div>
+        
+                
+            </div>
+        </section>
+        
+    </main>
+
+    
+    
+</body>
+<script>
+
+    
+
+    function validarCampo(texto){
+    if(texto != ''){
+        document.getElementById("no-existe-text").style.display = "none";
+        document.getElementById("existe-text").style.display = "block";
+        document.getElementById("copiarTexto").style.display = "block";
+        document.getElementById("contenido-de-texto-convertido").innerHTML = texto;
+    }else{
+        document.getElementById("existe-text").style.display = "none";
+        document.getElementById("copiarTexto").style.display = "none";
+        document.getElementById("no-existe-text").style.display = "block";
+    }
+    }
+
+    function encriptar(){
+        
+        let textoEnviado  = document.getElementById("Ingreso-de-texto").value;
+        let newTexto = "";
+        for (let i of textoEnviado){
+            if(i == "a"){
+                i = "ai";
+            }
+            if(i == "e"){
+                i = "enter";
+            }
+            if(i == "i"){
+                i = "imes";
+            }
+            if(i == "o"){
+                i = "ober";
+            }
+            if(i == "u"){
+                i = "ufat";
+            }
+            newTexto = newTexto+i;
+        }
+        validarCampo(newTexto);
+    }
+
+    function buscarEnFrase(texto, arrayEncr){
+
+        for(let i = 0; i < arrayEncr.length; i++){
+            let newTexto = ""
+            for(let j = 0; j < texto.length; j++){
+                let hayo = false;
+                if(arrayEncr[i].length == 2){
+                    if(texto[j]+texto[j+1] == arrayEncr[i]){
+                        newTexto = newTexto+"a";
+                        j = j+1;
+                        hayo = true;
+                    }
+                }
+
+                if(arrayEncr[i].length == 4){
+                    if((texto[j]+texto[j+1]+texto[j+2]+texto[j+3]) == "imes"){
+                        newTexto = newTexto+"i";
+                        j = j + 3;
+                        hayo = true;
+                    }
+                    if((texto[j]+texto[j+1]+texto[j+2]+texto[j+3]) == "ober"){
+                        newTexto = newTexto+"o";
+                        j = j + 3;
+                        hayo = true;
+                    }
+                    if((texto[j]+texto[j+1]+texto[j+2]+texto[j+3]) == "ufat"){
+                        newTexto = newTexto+"u";
+                        j = j + 3;
+                        hayo = true;
+                    }
+                }
+
+                if(arrayEncr[i].length == 5){
+                    if((texto[j]+texto[j+1]+texto[j+2]+texto[j+3]+texto[j+4]) == "enter"){
+                        newTexto = newTexto+"e";
+                        j = j + 4;
+                        hayo = true;
+                    }
+                }
+
+                if(!hayo){
+                    newTexto = newTexto+texto[j];
+                    
+                }
+
+            }
+            
+            texto = newTexto;
+        }
+        return(texto);
+    }
+
+    function desencriptar(){
+        let arrayEncript = ["ai", "enter", "imes", "ober", "ufat"];
+        let textoEnviado  = document.getElementById("Ingreso-de-texto").value;
+
+        let textDsencrip = buscarEnFrase(textoEnviado, arrayEncript);
+        validarCampo(textDsencrip);
+    }
+
+    function copyText(){
+        let pasteText = document.getElementById("contenido-de-texto-convertido").innerText;
+        navigator.clipboard.writeText(pasteText)
+        .then(function() {
+            console.log("Texto copiado al portapapeles");
+        })
+        .catch(function(error) {
+            console.error("Error al copiar el texto al portapapeles: ", error);
+        });
+        
+    }
+
+   
+
+    
+</script>
+</html>
